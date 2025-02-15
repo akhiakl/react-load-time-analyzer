@@ -16,6 +16,7 @@
   "keywords": [],
   "author": "Akhil",
   "license": "MIT",
+  "repository": "https://github.com/akhiakl/react-load-time-analyzer",
   "peerDependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
