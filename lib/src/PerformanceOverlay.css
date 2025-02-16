@@ -1,0 +1,84 @@
+/* Floating Button */
+.performance-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Performance Overlay */
+.performance-overlay {
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    min-width: 320px;
+    min-height: 260px;
+    background: rgba(20, 20, 20, 0.95);
+    color: white;
+    border-radius: 6px;
+    z-index: 999;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    backdrop-filter: blur(8px);
+    resize: both;
+}
+
+/* Drag Handle */
+.drag-handle {
+    cursor: grab;
+    padding: 8px;
+    background: rgba(26, 26, 26, 0.95);
+}
+
+/* Title */
+.performance-title {
+    margin: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Performance Items */
+.performance-item {
+    margin: 6px 0;
+    font-size: 13px;
+    text-align: left;
+}
+
+.performance-item summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.performance-details {
+    padding-left: 12px;
+    color: #bbb;
+}
+
+/* Mobile Styles (Full-Screen, No Drag/Resize) */
+@media (max-width: 768px) {
+    .performance-overlay {
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        min-width: unset;
+        min-height: unset;
+        resize: none !important;
+    }
+
+    .drag-handle {
+        display: none;
+    }
+}

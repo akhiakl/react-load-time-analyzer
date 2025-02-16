@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "module": "es2015",
+    "target": "es2018",
+    "moduleResolution": "node",
+    "outDir": "./dist",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "allowJs": true,
-    "jsx": "react",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,7 +20,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "outDir": "dist",
     "removeComments": true,
     "sourceMap": false,
     "declaration": true
