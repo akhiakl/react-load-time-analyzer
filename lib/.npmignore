@@ -1,5 +1,6 @@
 src/
 node_modules/
+example/
 tests/
 .eslintrc.js
 jest.config.js

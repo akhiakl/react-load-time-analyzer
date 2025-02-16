@@ -1,0 +1,54 @@
+{
+    "name": "react-load-time-analyzer",
+    "version": "1.0.2",
+    "description": "React Load Time Analyzer",
+    "author": "Akhil <akhilk4k@gmail.com>",
+    "license": "MIT",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "source": "src/index.ts",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.esm.js",
+            "require": "./dist/index.cjs.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "repository": "https://github.com/akhiakl/react-load-time-analyzer",
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "rollup -c",
+        "prepublishOnly": "pnpm clean && pnpm lint && pnpm build",
+        "dev": "rollup -c --watch"
+    },
+    "peerDependencies": {
+        "react": ">=17.0.0",
+        "react-dom": ">=17.0.0"
+    },
+    "devDependencies": {
+        "@package/eslint-config": "workspace:*",
+        "@rollup/plugin-commonjs": "^28.0.2",
+        "@rollup/plugin-node-resolve": "^16.0.0",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^12.1.2",
+        "@types/node": "^22.13.4",
+        "@types/react": "^19.0.8",
+        "@types/react-dom": "^19.0.3",
+        "eslint": "^9.20.1",
+        "rimraf": "^6.0.1",
+        "rollup": "^4.34.7",
+        "tslib": "^2.8.1",
+        "typescript": "^5.7.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
