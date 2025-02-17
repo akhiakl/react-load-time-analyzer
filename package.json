@@ -2,10 +2,12 @@
   "name": "react-analyzer",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "prebuild": "pnpm lint:lib",
+    "build": "turbo run build --filter='./lib'",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "publish": "turbo run publish --access public"
+    "lint:lib": "turbo run lint --filter='./lib'",
+    "publish": "turbo run publish --filter='./lib"
   },
   "devDependencies": {
     "eslint": "^9.20.1",
