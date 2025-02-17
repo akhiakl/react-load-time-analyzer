@@ -8,17 +8,6 @@ import type { ProfilerInfo } from "./types";
  * @returns {object} - Profiling data including render times and phases.
  */
 const usePerformanceProfiler = (id: string): ProfilerInfo => {
-  if (process.env.NODE_ENV === "production") {
-    return {
-      id,
-      phase: "mount",
-      actualDuration: 0,
-      baseDuration: 0,
-      startTime: 0,
-      commitTime: 0,
-    };
-  }
-
   const [profilingData, setProfilingData] = useState<ProfilerInfo>({
     id,
     phase: "mount" as "mount" | "update" | "nested-update",
@@ -33,6 +22,8 @@ const usePerformanceProfiler = (id: string): ProfilerInfo => {
   const mountedRef = useRef(false);
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
+
     const startTime = performance.now();
     startTimeRef.current = startTime;
 
@@ -60,6 +51,7 @@ const usePerformanceProfiler = (id: string): ProfilerInfo => {
   });
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "production") return;
     mountedRef.current = true;
   }, []);
 

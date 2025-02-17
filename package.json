@@ -7,7 +7,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "lint:lib": "turbo run lint --filter='./lib'",
-    "publish": "turbo run publish --filter='./lib"
+    "publish-package": "cd lib && npm publish"
   },
   "devDependencies": {
     "eslint": "^9.20.1",

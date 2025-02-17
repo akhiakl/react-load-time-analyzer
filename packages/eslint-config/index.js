@@ -8,8 +8,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     { ignores: ['dist'] },
+    js.configs.recommended,
+    ...tseslint.configs.recommended,
     {
-        extends: [js.configs.recommended, ...tseslint.configs.recommended],
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
             ecmaVersion: 2020,
