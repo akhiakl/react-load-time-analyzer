@@ -1,4 +1,4 @@
-name: Node.js Package
+name: NPM Package publish
 
 on:
   release:
@@ -40,6 +40,6 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm publish --access public
+      - run: pnpm publish-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
