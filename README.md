@@ -23,35 +23,82 @@ or using yarn:
 yarn add react-load-time-analyzer
 ```
 
+or using pnpn:
+```sh
+pnpn add react-load-time-analyzer
+```
+
 ---
 
 ## 🛠 Usage
 
-### **1️⃣ Using the `useRenderTime` Hook**
-For functional components:
+### **1️⃣ Using the `usePerformanceProfiler` Hook**
+The `usePerformanceProfiler` hook allows you to profile the render performance of a component. It provides profiling data including render times and phases.
+
+#### Example
+
 ```tsx
-import React from "react";
-import { useRenderTime } from "react-load-time-analyzer";
+import React, { useState } from 'react';
+import { usePerformanceProfiler } from 'react-load-time-analyzer';
 
 const MyComponent = () => {
-  useRenderTime("MyComponent");
-  return <div>Hello, world!</div>;
+  const [count, setCount] = useState(0);
+  const profilingData = usePerformanceProfiler('MyComponent');
+
+  return (
+    <div>
+      <h1>My Component</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <p>Count: {count}</p>
+      <pre>{JSON.stringify(profilingData, null, 2)}</pre>
+    </div>
+  );
 };
+
+export default MyComponent;
 ```
 
-### **3️⃣ Enabling the Performance Overlay**
+### **2️⃣ Enabling the Performance Overlay**
 Display real-time logs in an on-screen widget:
 ```tsx
 import React from "react";
-import { PerformanceProvider, PerformanceOverlay } from "react-load-time-analyzer";
+import { PerformanceProvider } from "react-load-time-analyzer";
 
 const App = () => (
   <PerformanceProvider>
     <MyComponent />
     <MyClassComponent />
-    <PerformanceOverlay />
   </PerformanceProvider>
 );
+
+export default App;
+```
+
+### **4️⃣ Using the `PerFormanceProfiler` Component**
+The `PerFormanceProfiler` component can be used to wrap any component you want to profile.
+
+#### Example
+
+```tsx
+import React, { useState } from 'react';
+import { PerFormanceProfiler } from 'react-load-time-analyzer';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Vite + React</h1>
+      <PerFormanceProfiler id="card">
+        <div className="card">
+          <button onClick={() => setCount(count + 1)}>count is {count}</button>
+          <p>Edit <code>src/App.tsx</code> and save to test HMR</p>
+        </div>
+      </PerFormanceProfiler>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+    </div>
+  );
+};
 
 export default App;
 ```
@@ -63,11 +110,14 @@ export default App;
 ### `useRenderTime(componentName: string)`
 Tracks render performance of functional components.
 
+### `usePerformanceProfiler(componentName: string)`
+Profiles the render performance of a component, providing profiling data including render times and phases.
+
 ### `<PerformanceProvider>`
 Provides a global performance tracking context.
 
-### `<PerformanceOverlay>`
-Displays real-time render performance logs on-screen.
+### `<PerFormanceProfiler>`
+Wraps any component you want to profile.
 
 ---
 
