@@ -28,7 +28,7 @@ importers:
         version: 19.0.0(react@19.0.0)
       react-load-time-analyzer:
         specifier: workspace:*
-        version: link:../lib
+        version: link:..
     devDependencies:
       '@package/eslint-config':
         specifier: workspace:*
@@ -103,6 +103,7 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+    publishDirectory: ../
 
   packages/eslint-config:
     devDependencies:
