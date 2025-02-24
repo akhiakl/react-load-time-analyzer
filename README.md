@@ -107,9 +107,6 @@ export default App;
 
 ## 🛠 API Reference
 
-### `useRenderTime(componentName: string)`
-Tracks render performance of functional components.
-
 ### `usePerformanceProfiler(componentName: string)`
 Profiles the render performance of a component, providing profiling data including render times and phases.
 

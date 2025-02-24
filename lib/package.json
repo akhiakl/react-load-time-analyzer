@@ -1,6 +1,6 @@
 {
     "name": "react-load-time-analyzer",
-    "version": "1.1.6",
+    "version": "1.1.9",
     "description": "React Load Time Analyzer",
     "author": "Akhil <akhilk4k@gmail.com>",
     "license": "MIT",
@@ -20,13 +20,18 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "readme": "../README.md",
     "repository": "https://github.com/akhiakl/react-load-time-analyzer",
     "scripts": {
         "clean": "rimraf dist",
         "build": "rollup -c",
         "lint": "eslint .",
-        "prepublishOnly": "pnpm clean && pnpm lint && pnpm build",
+        "prebuild": "pnpm clean && pnpm lint",
+        "create-readme": "cp ../README.md .",
+        "clean-readme": "rm README.md",
+        "prepare": "pnpm create-readme",
+        "postpublish": "pnpm clean-readme",
+        "postpack": "pnpm clean-readme",
+        "postpublishOnly": "pnpm build",
         "dev": "rollup -c --watch"
     },
     "peerDependencies": {
@@ -50,8 +55,7 @@
         "typescript": "^5.7.3"
     },
     "publishConfig": {
-        "access": "public",
-        "directory": "../"
+        "access": "public"
     },
     "engines": {
         "node": ">=18.0.0"
